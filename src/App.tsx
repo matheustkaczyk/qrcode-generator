@@ -10,26 +10,24 @@ function App() {
   const [url, setUrl] = useState('');
   const [input, setInput] = useState('');
 
-  const teste = () => {
+  const createQr = () => {
     let conteiner = document.querySelector('.canvas-wrapper') as HTMLElement;
 
     try {
-      QrCode.toDataURL('https://www.google.com.br', function (err, url) {
+      QrCode.toDataURL(input, function (err, url) {
         if (err) console.log(err);
   
-        console.log(url);
         setUrl(url);
-
-        // let element = document.createElement('a');
-        // element.setAttribute('href', url);
-        // element.setAttribute('download', 'qrcode.png');
-        // element.innerHTML = 'Download';
-        // conteiner.appendChild(element);
       });
       
-      QrCode.toCanvas('https://www.google.com.br', function (err, canvas) {
+      QrCode.toCanvas(input, function (err, canvas) {
         if (err) console.log(err);
 
+        if (document.querySelector('.qrcode')) {
+          conteiner.removeChild(document.querySelector('.qrcode') as HTMLElement);
+        }
+
+        canvas.setAttribute('class', 'qrcode');
         conteiner.appendChild(canvas);
       })
     } catch (error) {
@@ -43,7 +41,7 @@ function App() {
       <main>
         <div className='opts'>
           <Input text={'Conteúdo'} handleChange={(e) => setInput(e.target.value)} type="text" />
-          <Button text={"Criar"} type="button" handleClick={() => teste()} />
+          <Button text={"Criar"} type="button" handleClick={() => createQr()} />
         </div>
         <div className='result'>
           <a className='canvas-wrapper' href={url} download="QrCode">
