@@ -4,6 +4,7 @@ import Header from './components/Header';
 
 import QrCode from 'qrcode';
 import Input from './components/Input';
+import Button from './components/Button';
 
 function App() {
   const [url, setUrl] = useState('');
@@ -42,9 +43,10 @@ function App() {
       <main>
         <div className='opts'>
           <Input text={'Conteúdo'} handleChange={(e) => setInput(e.target.value)} type="text" />
+          <Button text={"Criar"} type="button" handleClick={() => teste()} />
         </div>
         <div className='result'>
-          <a className='canvas-wrapper' download={`${url}.png`}>
+          <a className='canvas-wrapper' href={url} download="QrCode">
 
           </a>
         </div>
