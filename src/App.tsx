@@ -5,16 +5,19 @@ import Header from './components/Header';
 import QrCode from 'qrcode';
 
 function App() {
-  const [href, setHref] = useState('');
   const [url, setUrl] = useState('');
   const [input, setInput] = useState('');
 
   const teste = () => {
+    let conteiner = document.querySelector('.canvas-wrapper') as HTMLElement;
+
     try {
       QrCode.toDataURL('https://www.google.com.br', function (err, url) {
         if (err) console.log(err);
   
         console.log(url);
+        setUrl(url);
+
         // let element = document.createElement('a');
         // element.setAttribute('href', url);
         // element.setAttribute('download', 'qrcode.png');
@@ -24,7 +27,6 @@ function App() {
       
       QrCode.toCanvas('https://www.google.com.br', function (err, canvas) {
         if (err) console.log(err);
-        let conteiner = document.getElementById('canvas-wrapper') as HTMLElement;
 
         conteiner.appendChild(canvas);
       })
@@ -33,7 +35,7 @@ function App() {
     }
   }
 
-  // teste();
+  teste();
 
   return (
     <div className="App">
@@ -43,7 +45,7 @@ function App() {
 
         </div>
         <div className='result'>
-          <a className='canvas-wrapper' href={href} download={url}>
+          <a className='canvas-wrapper' download={`${url}.png`}>
 
           </a>
         </div>
