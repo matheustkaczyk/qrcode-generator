@@ -28,9 +28,11 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <div id='canvas-wrapper'>
+      <main>
+        <div id='canvas-wrapper'>
 
-      </div>
+        </div>
+      </main>
     </div>
   )
 }
