@@ -5,23 +5,25 @@ import './App.scss';
 import Header from './components/Header';
 import Input from './components/Input';
 import Button from './components/Button';
+import Select from './components/Select';
 
 function App() {
   const [url, setUrl] = useState('');
   const [input, setInput] = useState('');
+  const [size, setSize] = useState(200);
 
-  const createQr = () => {
+  const createQr = async () => {
     let conteiner = document.querySelector('.canvas-wrapper') as HTMLElement;
 
     try {
-      QrCode.toDataURL(input, function (err, url) {
+      await QrCode.toDataURL(input, function (err, url) {
         if (err) console.log(err);
   
         setUrl(url);
       });
       
-      QrCode.toCanvas(input, {
-        width: 400
+      await QrCode.toCanvas(input, {
+        width: size,
       }, function (err, canvas) {
         if (err) console.log(err);
 
@@ -37,6 +39,22 @@ function App() {
     }
   }
 
+  const handleSelect = (event: any) => {
+    switch (event.target.value) {
+      case 'small':
+        setSize(200);
+        break;
+      case 'medium':
+        setSize(400);
+        break;
+      case 'large':
+        setSize(600);
+        break;
+    default:
+    setSize(200);
+    }
+  }
+
   return (
     <div className="App">
       <Header />
@@ -44,6 +62,7 @@ function App() {
         <div className='opts'>
           <Input text={'Conteúdo alvo'} handleChange={(e) => setInput(e.target.value)} type="text" />
           <Button text={"Criar"} type="button" handleClick={() => createQr()} />
+          <Select name='size' options={['small', 'medium', 'large']} handleChange={handleSelect} />
         </div>
         <div className='result'>
           <a className='canvas-wrapper' href={url} download="QrCode" />
@@ -54,4 +73,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

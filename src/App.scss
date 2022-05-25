@@ -54,6 +54,17 @@ main {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
 
+  .opts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-right: solid rgb(202, 199, 199) 1px;
+    padding: 1%;
+  }
+
   .result {
     display: flex;
     flex-direction: column;
