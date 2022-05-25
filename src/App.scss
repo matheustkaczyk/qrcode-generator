@@ -25,17 +25,24 @@ header {
 }
 
 main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: white;
+  width: auto;
+  height: 75vh;
   padding: 1%;
   border-radius: 5px;
 
   input {
-    width: 100%;
+    width: 90%;
     padding: 1%;
     border-radius: 5px;
     border: none;
     font-size: 1.5rem;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: #FFFFFF;
+    text-align: center;
   }
 
   button {
@@ -45,5 +52,22 @@ main {
     border: none;
     font-size: 1.5rem;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
+  .result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+    p {
+      text-align: center;
+      font-weight: 500;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      margin-top: 3%;
+      font-size: small;
+    }
   }
 }

@@ -20,7 +20,9 @@ function App() {
         setUrl(url);
       });
       
-      QrCode.toCanvas(input, function (err, canvas) {
+      QrCode.toCanvas(input, {
+        width: 400
+      }, function (err, canvas) {
         if (err) console.log(err);
 
         if (document.querySelector('.qrcode')) {
@@ -45,7 +47,7 @@ function App() {
         </div>
         <div className='result'>
           <a className='canvas-wrapper' href={url} download="QrCode" />
-          { url === '' && <p>Crie seu QRCode agora mesmo, rápido e fácil!</p> }
+          { url === '' ? <p>Crie seu QRCode agora mesmo, rápido e fácil!</p> : <p>Baixe seu QRCode clicando na imagem acima</p> }
         </div>
       </main>
     </div>
