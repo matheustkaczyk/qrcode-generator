@@ -15,6 +15,8 @@ function App() {
   const createQr = async () => {
     let conteiner = document.querySelector('.canvas-wrapper') as HTMLElement;
 
+    if (input === '') return alert('Por favor insira um conteúdo para gerar o QR Code');
+
     try {
       await QrCode.toDataURL(input, function (err, url) {
         if (err) console.log(err);
@@ -39,7 +41,7 @@ function App() {
     }
   }
 
-  const handleSelect = (event: any) => {
+  const handleSelect = (event: React.SyntheticEvent) => {
     switch (event.target.value) {
       case 'small':
         setSize(200);
