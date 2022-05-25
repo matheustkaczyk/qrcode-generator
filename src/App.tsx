@@ -40,7 +40,7 @@ function App() {
       <Header />
       <main>
         <div className='opts'>
-          <Input text={'Conteúdo'} handleChange={(e) => setInput(e.target.value)} type="text" />
+          <Input text={'Conteúdo alvo'} handleChange={(e) => setInput(e.target.value)} type="text" />
           <Button text={"Criar"} type="button" handleClick={() => createQr()} />
         </div>
         <div className='result'>
