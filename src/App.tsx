@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import './App.scss';
-import Header from './components/Header';
-
 import QrCode from 'qrcode';
+import './App.scss';
+
+import Header from './components/Header';
 import Input from './components/Input';
 import Button from './components/Button';
 
@@ -44,9 +44,8 @@ function App() {
           <Button text={"Criar"} type="button" handleClick={() => createQr()} />
         </div>
         <div className='result'>
-          <a className='canvas-wrapper' href={url} download="QrCode">
-
-          </a>
+          <a className='canvas-wrapper' href={url} download="QrCode" />
+          { url === '' && <p>Crie seu QRCode agora mesmo, rápido e fácil!</p> }
         </div>
       </main>
     </div>
