@@ -18,7 +18,9 @@ function App() {
     if (input === '') return alert('Por favor insira um conteúdo para gerar o QR Code');
 
     try {
-      await QrCode.toDataURL(input, function (err, url) {
+      await QrCode.toDataURL(input, {
+        width: size,
+      }, function (err, url) {
         if (err) console.log(err);
   
         setUrl(url);
@@ -41,15 +43,15 @@ function App() {
     }
   }
 
-  const handleSelect = (event: React.SyntheticEvent) => {
+  const handleSelect = (event: any) => {
     switch (event.target.value) {
-      case 'small':
+      case 'Small':
         setSize(200);
         break;
-      case 'medium':
+      case 'Medium':
         setSize(400);
         break;
-      case 'large':
+      case 'Large':
         setSize(600);
         break;
     default:
@@ -64,7 +66,7 @@ function App() {
         <div className='opts'>
           <Input text={'Conteúdo alvo'} handleChange={(e) => setInput(e.target.value)} type="text" />
           <Button text={"Criar"} type="button" handleClick={() => createQr()} />
-          <Select name='size' options={['small', 'medium', 'large']} handleChange={handleSelect} />
+          <Select name='size' options={['Small', 'Medium', 'Large']} handleChange={handleSelect} />
         </div>
         <div className='result'>
           <a className='canvas-wrapper' href={url} download="QrCode" />

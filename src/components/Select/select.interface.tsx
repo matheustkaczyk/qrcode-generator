@@ -1,4 +1,4 @@
-type options = 'small' | 'medium' | 'large';
+type options = 'Small' | 'Medium' | 'Large';
 
 interface ISelect {
   name: string;
