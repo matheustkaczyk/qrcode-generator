@@ -27,7 +27,7 @@ function App() {
       });
       
       await QrCode.toCanvas(input, {
-        width: size,
+        width: 200,
       }, function (err, canvas) {
         if (err) console.log(err);
 
@@ -64,9 +64,12 @@ function App() {
       <Header />
       <main>
         <div className='opts'>
-          <Input text={'Conteúdo alvo'} handleChange={(e) => setInput(e.target.value)} type="text" />
-          <Button text={"Criar"} type="button" handleClick={() => createQr()} />
-          <Select name='size' options={['Small', 'Medium', 'Large']} handleChange={handleSelect} />
+          <h3>Insira as informações para o seu QRCode</h3>
+          <div>
+            <Input text={'Conteúdo do QR'} handleChange={(e) => setInput(e.target.value)} type="text" />
+            <Button text={"Criar"} type="button" handleClick={() => createQr()} />
+            <Select name='size' options={['Small', 'Medium', 'Large']} handleChange={handleSelect} />
+          </div>
         </div>
         <div className='result'>
           <a className='canvas-wrapper' href={url} download="QrCode" />
