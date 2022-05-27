@@ -68,8 +68,8 @@ function App() {
           <h3>Insira as informações para o seu QRCode</h3>
           <div>
             <Input text={'Conteúdo do QR'} handleChange={(e) => setInput(e.target.value)} type="text" />
-            <Button text={"Criar"} type="button" handleClick={() => createQr()} />
             <Select name='size' options={['Small', 'Medium', 'Large']} handleChange={handleSelect} />
+            <Button text={"Criar"} type="button" handleClick={() => createQr()} />
           </div>
         </div>
         <div className='result'>
