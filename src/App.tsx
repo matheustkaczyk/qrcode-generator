@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Input from './components/Input';
 import Button from './components/Button';
 import Select from './components/Select';
+import Footer from './components/Footer';
 
 function App() {
   const [url, setUrl] = useState('');
@@ -76,6 +77,7 @@ function App() {
           { url === '' ? <p>Crie seu QRCode agora mesmo, rápido e fácil!</p> : <p>Baixe seu QRCode clicando na imagem acima</p> }
         </div>
       </main>
+      <Footer />
     </div>
   )
 }
