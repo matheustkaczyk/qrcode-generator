@@ -138,3 +138,32 @@ footer {
     }
   }
 }
+
+@media (max-width: 470px) {
+  .App {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  header {
+    font-size: 1.5rem;
+  }
+
+  main {
+    .opts {
+      width: 90%;
+
+      select {
+        width: 70%;
+      }
+
+      button {
+        width: 70%;
+      }
+    }
+
+    .result {
+      width: 100%;
+    }
+  }
+}
